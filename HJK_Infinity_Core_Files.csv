@@ -1,0 +1,6 @@
+Filename,Description
+Whitepaper.txt,Detailed technical explanation of the HJK Infinity Core system
+LICENSE.txt,Custom license terms for non-commercial use
+README.md,Project summary, contact, and IPFS instructions
+ai_controller.py,Sample Python code for AI controller logic
+diagram.png,Placeholder image representing the system's design

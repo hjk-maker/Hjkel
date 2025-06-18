@@ -1,0 +1,4 @@
+Custom License
+
+All rights reserved. This software may be used, modified, and shared for non-commercial purposes only.
+Commercial use is strictly prohibited without written permission from the author (HJK Maker).
