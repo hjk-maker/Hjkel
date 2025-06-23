@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HJK Inc. | Powering the Future</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #00eeff;
+            --secondary: #ff00aa;
+            --dark: #0a0a1a;
+            --darker: #050510;
+            --light: #e0f0ff;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, var(--darker), var(--dark));
+            color: var(--light);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+        
+        /* Header Styles */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            background: rgba(10, 10, 26, 0.8);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 238, 255, 0.2);
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo h1 {
+            font-size: 28px;
+            font-weight: 800;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            letter-spacing: 1px;
+        }
+        
+        .logo span {
+            color: var(--primary);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin: 0 15px;
+        }
+        
+        nav ul li a {
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 5px 0;
+        }
+        
+        nav ul li a:hover {
+            color: var(--primary);
+        }
+        
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s ease;
+        }
+        
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 0 10%;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 800px;
+            height: 800px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(0, 238, 255, 0.1) 0%, rgba(10, 10, 26, 0) 70%);
+            z-index: -1;
+        }
+        
+        .hero-content {
+            max-width: 600px;
+        }
+        
+        .hero h2 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+        
+        .hero h2 span {
+            color: var(--primary);
+            text-transform: uppercase;
+        }
+        
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            padding: 15px 40px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            color: var(--darker);
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 50px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 238, 255, 0.3);
+        }
+        
+        .hero-image {
+            position: absolute;
+            right: 10%;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            background: radial-gradient(circle, var(--primary) 0%, transparent 70%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: pulse 4s infinite;
+        }
+        
+        .core {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background: radial-gradient(circle, var(--secondary) 0%, transparent 70%);
+            box-shadow: 0 0 100px var(--secondary);
+            animation: rotate 20s linear infinite;
+        }
+        
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(0, 238, 255, 0.7); }
+            70% { box-shadow: 0 0 0 30px rgba(0, 238, 255, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(0, 238, 255, 0); }
+        }
+        
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        /* Sections */
+        section {
+            padding: 100px 10%;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 36px;
+            display: inline-block;
+            padding-bottom: 10px;
+            position: relative;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: var(--primary);
+        }
+        
+        /* Technology Section */
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .tech-card {
+            background: rgba(20, 20, 40, 0.6);
+            border: 1px solid rgba(0, 238, 255, 0.2);
+            border-radius: 15px;
+            padding: 30px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .tech-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0, 238, 255, 0.2);
+            border-color: var(--primary);
+        }
+        
+        .tech-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+        }
+        
+        .tech-icon {
+            font-size: 40px;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+        
+        .tech-card h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+        }
+        
+        /* Applications Section */
+        .apps {
+            background: linear-gradient(135deg, var(--darker), #0f0f25);
+        }
+        
+        .app-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+        
+        .app-card {
+            flex: 1;
+            min-width: 300px;
+            max-width: 400px;
+            background: rgba(15, 15, 35, 0.8);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .app-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(255, 0, 170, 0.2);
+        }
+        
+        .app-image {
+            height: 200px;
+            background: linear-gradient(135deg, #0a0a1a, #1a1a3a);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 60px;
+            color: var(--secondary);
+        }
+        
+        .app-content {
+            padding: 25px;
+        }
+        
+        .app-content h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+        
+        /* Licensing Section */
+        .license-steps {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .step {
+            flex: 1;
+            min-width: 250px;
+            text-align: center;
+            padding: 30px;
+            position: relative;
+        }
+        
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
+            color: var(--darker);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            font-weight: bold;
+            margin: 0 auto 20px;
+        }
+        
+        .step h3 {
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--darker);
+            padding: 50px 10% 20px;
+            text-align: center;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column {
+            flex: 1;
+            min-width: 250px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-column h3 {
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-size: 20px;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-column ul li a {
+            color: var(--light);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-column ul li a:hover {
+            color: var(--primary);
+        }
+        
+        .copyright {
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 14px;
+            opacity: 0.7;
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                padding-top: 100px;
+            }
+            
+            .hero-content {
+                margin-bottom: 50px;
+            }
+            
+            .hero-image {
+                position: relative;
+                top: auto;
+                right: auto;
+                transform: none;
+                margin: 0 auto;
+                width: 300px;
+                height: 300px;
+            }
+            
+            .core {
+                width: 200px;
+                height: 200px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+            }
+            
+            .hero h2 {
+                font-size: 36px;
+            }
+            
+            .tech-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="logo">
+            <h1>HJK<span>INC</span></h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#technology">Technology</a></li>
+                <li><a href="#applications">Applications</a></li>
+                <li><a href="#licensing">Licensing</a></li>
+                <li><a href="#hjk-os">HJK-OS</a></li>
+                <li><a href="#legal">Legal</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h2>Powering the Future with the <span>Infinity Core™</span></h2>
+            <p>HJK Inc. presents the revolutionary energy technology that will transform global power infrastructure. Our Infinity Core™ harnesses plasma energy to deliver unprecedented power density and efficiency.</p>
+            <a href="#licensing" class="cta-button">License Our Technology</a>
+        </div>
+        <div class="hero-image">
+            <div class="core"></div>
+        </div>
+    </section>
+
+    <!-- Technology Section -->
+    <section id="technology">
+        <div class="section-title">
+            <h2>Revolutionary Technology</h2>
+        </div>
+        <div class="tech-grid">
+            <div class="tech-card">
+                <div class="tech-icon">
+                    <i class="fas fa-atom"></i>
+                </div>
+                <h3>Plasma Energy Core</h3>
+                <p>At the heart of our technology is a stabilized plasma orb that generates immense power through controlled fusion-like reactions at room temperature.</p>
+            </div>
+            <div class="tech-card">
+                <div class="tech-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h3>Quantum Containment</h3>
+                <p>Our patented magnetic containment field keeps the plasma stable and secure, preventing energy leaks and ensuring operational safety.</p>
+            </div>
+            <div class="tech-card">
+                <div class="tech-icon">
+                    <i class="fas fa-brain"></i>
+                </div>
+                <h3>AI Regulation System</h3>
+                <p>Neural network AI constantly monitors and adjusts energy output, maintaining optimal performance under all conditions.</p>
+            </div>
+            <div class="tech-card">
+                <div class="tech-icon">
+                    <i class="fas fa-recycle"></i>
+                </div>
+                <h3>Eco-Friendly Design</h3>
+                <p>Constructed from recycled ocean plastic with zero emissions, our technology represents the future of clean energy.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Applications Section -->
+    <section id="applications" class="apps">
+        <div class="section-title">
+            <h2>Limitless Applications</h2>
+        </div>
+        <div class="app-container">
+            <div class="app-card">
+                <div class="app-image">
+                    <i class="fas fa-rocket"></i>
+                </div>
+                <div class="app-content">
+                    <h3>Space Exploration</h3>
+                    <p>Power next-generation rockets and deep space vessels with our compact, high-output cores. Enable Mars colonization with reliable, self-sustaining power systems.</p>
+                </div>
+            </div>
+            <div class="app-card">
+                <div class="app-image">
+                    <i class="fas fa-city"></i>
+                </div>
+                <div class="app-content">
+                    <h3>Urban Infrastructure</h3>
+                    <p>A single Infinity Core™ can power an entire city block. Replace aging power grids with our decentralized, efficient energy systems.</p>
+                </div>
+            </div>
+            <div class="app-card">
+                <div class="app-image">
+                    <i class="fas fa-bolt"></i>
+                </div>
+                <div class="app-content">
+                    <h3>Electric Transportation</h3>
+                    <p>Revolutionize EV charging with our 10-second full-charge stations. Power electric aircraft for zero-emission air travel.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Licensing Section -->
+    <section id="licensing">
+        <div class="section-title">
+            <h2>Technology Licensing</h2>
+        </div>
+        <div class="license-steps">
+            <div class="step">
+                <div class="step-number">1</div>
+                <h3>Submit Application</h3>
+                <p>Complete our proprietary licensing application with your intended use case and scale requirements.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <h3>Quantum Legal Review</h3>
+                <p>Our AI legal team will evaluate your application in nanoseconds and generate custom licensing terms.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <h3>DNA Authentication</h3>
+                <p>Provide biometric verification to activate your licensed technology through our Quantum Security System.</p>
+            </div>
+            <div class="step">
+                <div class="step-number">4</div>
+                <h3>Deployment</h3>
+                <p>Our engineering team will deploy and integrate Infinity Core™ technology into your infrastructure.</p>
+            </div>
+        </div>
+        <div style="text-align: center; margin-top: 50px;">
+            <a href="#contact" class="cta-button">Begin Licensing Process</a>
+        </div>
+    </section>
+
+    <!-- HJK OS Section -->
+    <section id="hjk-os" class="apps">
+        <div class="section-title">
+            <h2>HJK Operating System</h2>
+        </div>
+        <div class="tech-grid">
+            <div class="tech-card">
+                <div class="tech-icon">
+                    <i class="fas fa-microchip"></i>
+                </div>
+                <h3>Core Integration</h3>
+                <p>HJK-OS provides seamless control and monitoring of Infinity Core™ technology through an intuitive interface.</p>
+            </div>
+            <div class="tech-card">
+                <div class="tech-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <h3>Performance Optimization</h3>
+                <p>Our OS uses predictive AI to optimize energy output based on usage patterns and demand forecasts.</p>
+            </div>
+            <div class="tech-card">
+                <div class="tech-icon">
+                    <i class="fas fa-lock"></i>
+                </div>
+                <h3>Quantum Security</h3>
+                <p>Unbreakable encryption protects your energy infrastructure from cyber threats and unauthorized access.</p>
+            </div>
+            <div class="tech-card">
+                <div class="tech-icon">
+                    <i class="fas fa-network-wired"></i>
+                </div>
+                <h3>Global Energy Network</h3>
+                <p>Connect to the HJK Energy Grid to share surplus power and access emergency reserves when needed.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Legal Section -->
+    <section id="legal">
+        <div class="section-title">
+            <h2>Patent Enforcement</h2>
+        </div>
+        <div class="tech-grid">
+            <div class="tech-card">
+                <div class="tech-icon">
+                    <i class="fas fa-gavel"></i>
+                </div>
+                <h3>Quantum Legal AI</h3>
+                <p>Our autonomous legal system monitors global energy patents 24/7 and instantly files infringement claims.</p>
+            </div>
+            <div class="tech-card">
+                <div class="tech-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h3>Anti-Reverse Engineering</h3>
+    in
